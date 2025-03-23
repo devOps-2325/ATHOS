@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athos - Register</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            max-width: 400px;
+            margin: 100px auto;
+            border-radius: 10px;
+            border: 3px solid #ff9900;
+        }
+        h1 {
+            color: #ffcc00;
+            font-size: 20px;
+        }
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ff9900;
+            background: #222 !important;
+            color: #fff;
+            font-size: 14px;
+        }
+        input:focus, input:valid {
+            background: #222 !important;
+        }
+
+        button {
+            font-family: inherit;
+            background-color: #ff9900;
+            color: white;
+            border: 3px solid black;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #ffcc00;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register for Athos</h1>
+        <form id="registerForm">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="email" name="email" id="email" placeholder="Email" required><br>
+            <span class="error" id="emailError">Invalid email format!</span><br>
+            <input type="date" name="birthdate" required><br>
+            <input type="number" name="height" placeholder="Height (cm)" required><br>
+            <input type="number" name="weight" placeholder="Weight (kg)" required><br>
+            <input type="text" name="gym" placeholder="Joined a gym? (Yes/No)" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required><br>
+            <span class="error" id="passwordError">Passwords do not match!</span><br>
+            <button type="submit">Register</button>
+        </form>
+        <a href="index.html" class="back-link">Back to Home</a>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let passwordError = document.getElementById("passwordError");
+            let email = document.getElementById("email").value;
+            let emailError = document.getElementById("emailError");
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                emailError.style.display = "block";
+                return;
+            } else {
+                emailError.style.display = "none";
+            }
+
+            if (password !== confirmPassword) {
+                passwordError.style.display = "block";
+                return;
+            } else {
+                passwordError.style.display = "none";
+                window.location.href = "otp.html?email=" + encodeURIComponent(email);
+            }
+        });
+    </script>
+</body>
+</html>
