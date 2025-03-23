@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px;
+  color: #fcf9f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+}
+h1{
+  font-size: 40px;
+}
+h1,h3{
+  margin: 5px;
+  padding-right: 10px;
+ text-align: center; 
+ color: #ffc400;
+
+}
+.HEAD{
+text-align: center;
+}
+
+.login{
+  padding: 15px;
+  background-image: url("LAB5.jpg");
+  align-self: center;
+  border: 5px solid white;
+  border-radius: 20px;
+  background-color: rgba(20, 20, 20, 0.8);
+  line-height: 15px;
+}
+.login:focus-within
+{
+ border-color: #000000;
+}
+.form{
+  padding: 15px;
+  
+}
+.form_control{
+  line-height: 40px;
+  display: flex;
+  flex-direction:column;
+}
+.form_control>input{
+  background: #242323;
+  border-style: solid;
+  border-radius: 10px;
+  height: 25px;
+  padding: 5px;
+  color: #8c8686;
+}
+.button{
+   margin-top: 20px;
+}
+button{
+  background-color: #5a8f22;
+  border: transparent solid 2px;
+  padding: 5px 10px;
+  color: rgb(0, 0, 0);
+  border-radius: 8px;
+  transition:0.3s ease-in;
+  font-family: 'Press Start 2P', cursive;
+}
+button:hover{
+  background-color: #87c232;
+  color: black;
+  transition:0.3s ease-out;
+  cursor: pointer;
+}
+.foot{
+  align-items: center;
+}
