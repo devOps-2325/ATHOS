@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Athos - Gaming Fitness</title>
+</head>
+<body>
+    <header>
+        <h1>ATHOS</h1>
+        <div class="buttons">
+            <a href="athos\login\index.html"><button id="loginBtn"><i class="person-icon">👤</i> Login</button></a>
+            <button id="registerBtn">Register</button>
+        </div>
+    </header>
+
+    <main>
+        <h2 id="welcomeText"></h2>
+        <p>The perfect blend of gaming and fitness.</p>
+        <button class="start-quest">Start Quest</button>
+    </main>
+
+    <section class="features">
+        <h2>Features</h2>
+        <ul>
+            <li>🎮 Gamified workouts for fun and fitness</li>
+            <li>⚡ Track your progress with interactive challenges</li>
+            <li>💪 Connect with fellow fitness gamers</li>
+            <li>🏆 Earn rewards and achievements</li>
+            <li>📊 Personalized fitness analytics</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Contact us:</p>
+        <a href="https://instagram.com/yourpage" target="_blank">
+            <img src="instagram-icon.png" alt="Instagram">Instagram
+        </a>
+        <a href="mailto:contact@athos.com">
+            <img src="email-icon.png" alt="Email">contact@athos.com
+        </a>
+    </footer>
+
+    <audio id="clickSound" src="click.mp3"></audio>
+
+    <script>
+        document.getElementById("loginBtn").addEventListener("click", function() {
+            document.getElementById("clickSound").play();
+            alert("Login button clicked! Redirecting...");
+        });
+
+        document.getElementById("registerBtn").addEventListener("click", function() {
+            document.getElementById("clickSound").play();
+            alert("Register button clicked! Redirecting...");
+        });
+
+        document.querySelector(".start-quest").addEventListener("click", function() {
+            document.getElementById("clickSound").play();
+            alert("Starting your quest!");
+        });
+
+        let i = 0;
+        let text = "Welcome to Athos!";
+        function typeEffect() {
+            if (i < text.length) {
+                document.getElementById("welcomeText").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeEffect, 100);
+            }
+        }
+        window.onload = typeEffect;
+    </script>
+</body>
+</html>
