@@ -112,6 +112,7 @@ footer a img {
   background: #87c232;
 }
 
+
 @keyframes flicker {
   0% { opacity: 0.8; }
   50% { opacity: 1; }
