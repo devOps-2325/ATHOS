@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+  font-family: 'Press Start 2P', cursive; /* Retro Gaming Font */
+  background-color: #f4f4f4; /* Dark Background */
+  color: #000000; /* Light Text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container */
+.container {
+  background: #2b2b2b; 
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+  border: 2px solid orange;
+  width: 80%;
+  max-width: 900px;
+}
+
+/* Navigation Buttons */
+.nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.nav-btn {
+  background: #ea8d03; /* Dark Red */
+  /* color: #fff; */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Card Style */
+.card {
+  background: #828282;
+  color: #2b2b2b;
+  padding: 20px;
+  border: 3px solid #ffffff;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+/* Buttons */
+.share-btn, .cheer-btn {
+  background: #ea8d03; 
+  border-radius: 20px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: inherit;
+}
+.share-btn:hover,.cheer-btn:hover {
+  background: #ea8d03;
+}
+
+/* Link Copy Message */
+#linkMessage {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: green;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none;
+}
+
+.hidden {
+  display: none;
+}

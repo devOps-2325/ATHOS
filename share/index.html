@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Navigation -->
+        <div class="nav">
+            <button class="nav-btn">ATHOS CRAFT</button>
+            <button class="nav-btn">Avatar</button>
+            <button class="nav-btn">Bell</button>
+        </div>
+
+        <!-- Today's Challenge -->
+        <div class="card">
+            <h2>TODAY'S CHALLENGE</h2>
+            <p id="challenge">10 Push-Ups x 3 Sets</p>
+            <button class="share-btn" onclick="shareChallenge()">SHARE NOW</button>
+        </div>
+
+        <!-- Friends' Activity -->
+        <div class="card">
+            <h2>FRIENDS' ACTIVITY</h2>
+            <div class="activity">
+                <p><strong>@Jake</strong> ran 3 miles! <button class="cheer-btn" onclick="cheer(this)">CHEER</button></p>
+                <p><strong>@Nora</strong> did 15 squats! <button class="cheer-btn" onclick="cheer(this)">CHEER</button></p>
+                <p><strong>@Marco</strong> completed a 10-day push-up streak! <button class="cheer-btn" onclick="cheer(this)">CHEER</button></p>
+            </div>
+        </div>
+
+        <div id="linkMessage" class="hidden">Link copied to clipboard!</div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
