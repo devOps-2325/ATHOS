@@ -5,7 +5,6 @@
   <title>Athos FitQuest - ATHOS Leaderboard</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
     body {
       margin: 0;
       padding: 0;
@@ -73,14 +72,8 @@
     }
 
     /* Glow effect for the top 3 */
-    .leaderboard li.top-1 {
-      animation: pulseGlow 1.5s infinite alternate;
-    }
-
-    .leaderboard li.top-2 {
-      animation: pulseGlow 1.5s infinite alternate;
-    }
-
+    .leaderboard li.top-1,
+    .leaderboard li.top-2,
     .leaderboard li.top-3 {
       animation: pulseGlow 1.5s infinite alternate;
     }
@@ -96,6 +89,7 @@
       from {
         box-shadow: 0 0 15px rgba(255, 223, 0, 0.8);
       }
+
       to {
         box-shadow: 0 0 30px rgba(255, 223, 0, 1);
       }
@@ -109,11 +103,6 @@
     <h1>🏆 ATHOS Leaderboard 🏆</h1>
     <ul id="leaderboard" class="leaderboard">
       <!-- Dynamic leaderboard will be injected here -->
-       <LI>ASHISH</LI>
-       <LI>PURAB</LI>
-       <LI>MEHAK</LI>
-       <LI>JYOTI</LI>
-       <LI>RUHI</LI>
     </ul>
   </div>
 
@@ -130,9 +119,11 @@
           displayLeaderboard(data.leaderboard);
         } else {
           console.error("Failed to fetch leaderboard:", data.error);
+          showError("Leaderboard unavailable.");
         }
       } catch (error) {
         console.error("Error loading leaderboard:", error);
+        showError("Error fetching leaderboard.");
       }
     }
 
@@ -144,6 +135,7 @@
         .forEach((player, index) => {
           const li = document.createElement('li');
           li.className = index < 3 ? `top-${index + 1}` : '';
+          li.style.animationDelay = `${index * 0.1}s`; // Staggered animation
           li.innerHTML = `
             <span class="rank">${index + 1}.</span>
             <span class="player-name">${player.username}</span>
@@ -151,6 +143,10 @@
           `;
           leaderboardList.appendChild(li);
         });
+    }
+
+    function showError(message) {
+      leaderboardList.innerHTML = `<li>${message}</li>`;
     }
 
     loadLeaderboard();
