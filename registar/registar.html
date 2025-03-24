@@ -95,14 +95,14 @@
     document.getElementById("registerForm").addEventListener("submit", async function(event) {
         event.preventDefault(); // Prevent default form submission
 
-        let username = document.querySelector("input[name='username']").value;
-        let email = document.querySelector("input[name='email']").value;
-        let birthdate = document.querySelector("input[name='birthdate']").value;
-        let height = document.querySelector("input[name='height']").value;
-        let weight = document.querySelector("input[name='weight']").value;
-        let gym = document.querySelector("input[name='gym']").value;
-        let password = document.getElementById("password").value;
-        let confirmPassword = document.getElementById("confirmPassword").value;
+        let username = document.querySelector("input[name='username']").value.trim();
+        let email = document.querySelector("input[name='email']").value.trim();
+        let birthdate = document.querySelector("input[name='birthdate']").value.trim();
+        let height = document.querySelector("input[name='height']").value.trim();
+        let weight = document.querySelector("input[name='weight']").value.trim();
+        let gym = document.querySelector("input[name='gym']").value.trim();
+        let password = document.getElementById("password").value.trim();
+        let confirmPassword = document.getElementById("confirmPassword").value.trim();
         
         let passwordError = document.getElementById("passwordError");
         let emailError = document.getElementById("emailError");
@@ -132,14 +132,21 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    username, email, birthdate, height, weight, gym, password
+                    username, 
+                    email, 
+                    birthdate, 
+                    height, 
+                    weight, 
+                    gym, 
+                    password
                 })
             });
 
             const data = await response.json();
+
             if (data.success) {
                 alert("✅ Registration Successful! Redirecting to OTP verification...");
-                window.location.href = "../otp/otp.html?email=" + encodeURIComponent(email);
+                window.location.href = `../otp/otp.html?email=${encodeURIComponent(email)}`;
             } else {
                 alert(`❌ Registration Failed: ${data.error}`);
             }
