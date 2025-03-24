@@ -4,17 +4,17 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* General Styling */
+
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-family: 'Press Start 2P', cursive;
-  background: url('bg.jpeg') no-repeat center center/cover;
+  background: url('bg.jpeg') no-repeat center center fixed;
+  background-size: cover;
   color: yellow;
 }
 
-/* Title Animation */
 #title {
   text-align: center;
   font-size: 4em;
@@ -40,7 +40,6 @@ body {
   }
 }
 
-/* Sidebar */
 .sidebar {
   position: fixed;
   margin-top: 100px;
@@ -74,7 +73,6 @@ body {
   transition: opacity 0.3s;
 }
 
-/* Responsive Layout */
 @media (max-width: 600px) {
   #title {
       font-size: 3em;
