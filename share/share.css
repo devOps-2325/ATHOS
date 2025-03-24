@@ -29,10 +29,15 @@ body {
 
 .nav-btn {
   background: #ea8d03; /* Dark Red */
-  /* color: #fff; */
+  font-family: inherit;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+.nav-btn:hover{
+  background: #de8500;
 }
 
 /* Card Style */
@@ -97,7 +102,6 @@ input[type="text"] {
 .btn {
   font-family: 'Press Start 2P', cursive; 
   background: #fa9703;
-  color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
