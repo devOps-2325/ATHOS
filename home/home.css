@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,7 +11,7 @@ body {
   padding: 0;
   overflow: hidden;
   font-family: 'Press Start 2P', cursive;
-  background: url('bg.jpeg') no-repeat center center fixed;
+  background: url('bravo.jpg') no-repeat center center fixed;
   background-size: cover;
   color: yellow;
 }
@@ -33,52 +34,80 @@ body {
 
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
-.sidebar {
-  position: fixed;
-  margin-top: 100px;
-  left: 20px;
-  top: 100px;
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6vw;
+  margin-top: 70px;
+  padding: 20px;
+}
+
+.icon-box {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 22vw;
+  height: 22vw;
+  max-width: 250px;
+  max-height: 250px;
+  min-width: 130px;
+  min-height: 130px;
+  background: rgba(255, 255, 255, 0.5); /* Reduced transparency */
+  border-radius: 10px;
+  transition: background 0.3s;
+  text-align: center;
+  padding: 20px;
+}
+
+.icon-box:hover {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .icon {
-  width: 60px;
+  width: 45%;
+  max-width: 90px;
+  height: auto;
   cursor: pointer;
-  transition: transform 0.3s, filter 0.3s;
 }
 
-.icon:hover {
-  transform: scale(1.2);
-  filter: brightness(1.5);
+.description {
+  margin-top: 15px;
+  font-size: 1vw;
+  color: black;
+  text-align: center;
 }
 
-.tooltip {
+.footer {
   position: absolute;
-  left: 80px;
+  bottom: 0;
+  width: 100%;
   background: rgba(0, 0, 0, 0.7);
   color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
 }
 
 @media (max-width: 600px) {
   #title {
-      font-size: 3em;
+    font-size: 3em;
+  }
+
+  .icon-box {
+    width: 45vw;
+    height: 45vw;
   }
 
   .icon {
-      width: 50px;
+    width: 60px;
   }
 }
