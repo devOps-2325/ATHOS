@@ -25,21 +25,36 @@
       <img src="trophy.png" alt="Achievements" class="icon">
       <p class="description">View leaderboard rankings</p>
     </div>
-    <div class="icon-box" onclick="navigate('home')">
-      <img src="THUNDER.png" alt="Home" class="icon">
-      <p class="description">Return to homepage</p>
+    <div class="icon-box" onclick="navigateToLogout()">
+      <img src="THUNDER.png" alt="Logout" class="icon">
+      <p class="description">Logout</p>
+    </div>
+    <div class="icon-box" onclick="navigateToProfile()">
+      <img src="profile.png" alt="Profile" class="icon">
+      <p class="description">Go to your profile</p>
     </div>
   </div>
 
   <div class="footer">
-    <p>Contact us: support@athos.com <br><br> Phone: +123456789 <br><br> </p>
+    <p>Contact us: support@athos.com | Phone: +123456789</p>
     <p>&copy; 2025 ATHOS. All Rights Reserved.</p>
   </div>
 
   <script>
     function navigate(section) {
       playClickSound();
-      alert(`Navigating to ${section}`);
+      window.location.href = section + ".html";
+    }
+
+    function navigateToLogout() {
+      playClickSound();
+      if (confirm("Are you sure you want to log out?")) {
+        window.location.href = "../main/main.html";
+      }
+    }
+    function navigateToProfile() {
+      playClickSound();
+      window.location.href = "../profile/profile.html";
     }
 
     function playClickSound() {

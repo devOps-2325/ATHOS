@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-* {
+  * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+  }
 
-body {
+  body {
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -14,79 +14,79 @@ body {
   background: url('bravo.jpg') no-repeat center center fixed;
   background-size: cover;
   color: yellow;
-}
+  }
 
-#title {
+  #title {
   text-align: center;
   font-size: 4em;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
   margin-top: 50px;
   opacity: 0;
   animation: fadeIn 2s ease forwards;
-}
+  }
 
-#fitquest {
+  #fitquest {
   text-align: center;
   font-size: 2em;
   opacity: 0;
   animation: fadeIn 2s 1s ease forwards;
-}
+  }
 
-@keyframes fadeIn {
+  @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
-}
+  }
 
-.container {
+  .container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6vw;
+  gap: 5vw;
   margin-top: 70px;
   padding: 20px;
-}
+  }
 
-.icon-box {
+  .icon-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 22vw;
-  height: 22vw;
-  max-width: 250px;
-  max-height: 250px;
-  min-width: 130px;
-  min-height: 130px;
-  background: rgba(255, 255, 255, 0.5); /* Reduced transparency */
+  width: 18vw;
+  height: 18vw;
+  max-width: 180px;
+  max-height: 180px;
+  min-width: 100px;
+  min-height: 100px;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   transition: background 0.3s;
   text-align: center;
-  padding: 20px;
-}
+  padding: 15px;
+  }
 
-.icon-box:hover {
+  .icon-box:hover {
   background: rgba(255, 255, 255, 0.7);
-}
+  }
 
-.icon {
-  width: 45%;
-  max-width: 90px;
+  .icon {
+  width: 40%;
+  max-width: 80px;
   height: auto;
   cursor: pointer;
-}
+  }
 
-.description {
-  margin-top: 15px;
+  .description {
+  margin-top: 10px;
   font-size: 1vw;
   color: black;
   text-align: center;
-}
+  }
 
-.footer {
+  .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -95,19 +95,19 @@ body {
   text-align: center;
   padding: 15px 0;
   font-size: 14px;
-}
+  }
 
-@media (max-width: 600px) {
+  @media (max-width: 600px) {
   #title {
     font-size: 3em;
   }
 
   .icon-box {
-    width: 45vw;
-    height: 45vw;
+    width: 40vw;
+    height: 40vw;
   }
 
   .icon {
-    width: 60px;
+    width: 50px;
   }
-}
+  }
