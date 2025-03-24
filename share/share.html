@@ -15,6 +15,16 @@
             <button class="nav-btn">Bell</button>
         </div>
         <div class="card">
+            <h1>Add a Daily Goal:</h1>
+    
+            <div class="goal-input">
+                <input type="text" id="goalInput" placeholder="E.g. Do 20 push-ups">
+                <button onclick="addGoal()" class="btn">Add Goal</button>
+            </div>
+    
+            <ul id="goalList"></ul>
+        </div>    
+        <div class="card">
             <h2>TODAY'S CHALLENGE</h2>
             <p id="challenge">10 Push-Ups x 3 Sets</p>
             <button class="share-btn" onclick="shareChallenge()">SHARE NOW</button>
