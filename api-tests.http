@@ -1,0 +1,22 @@
+### Test Registration API
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+  "username": "Ashish",
+  "email": "ashish@example.com",
+  "birthdate": "2000-01-01",
+  "height": "170",
+  "weight": "70",
+  "gym": "Yes",
+  "password": "securepassword"
+}
+
+### Test OTP API
+POST http://localhost:5000/send-otp
+Content-Type: application/json
+
+{
+  "email": "ashish@example.com"
+}
+
