@@ -83,9 +83,9 @@
             <input type="password" id="password" name="password" placeholder="Password" required><br>
             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required><br>
             <span class="error" id="passwordError">Passwords do not match!</span><br>
-            <button type="submit">Register</button>
+            <button onclick="window.location.href='../otp/otp.html'" type="submit">Register</button>
         </form>
-        <a href="index.html" class="back-link">Back to Home</a>
+        <a href="../main/main.html" class="back-link">Back to Home</a>
     </div>
 
     <script>
@@ -112,6 +112,7 @@
                 passwordError.style.display = "none";
                 window.location.href = "otp.html?email=" + encodeURIComponent(email);
             }
+
         });
     </script>
 </body>

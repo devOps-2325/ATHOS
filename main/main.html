@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
@@ -12,15 +11,15 @@
     <header>
         <h1>ATHOS</h1>
         <div class="buttons">
-            <a href="athos\login\index.html"><button id="loginBtn"><i class="person-icon">👤</i> Login</button></a>
-            <button id="registerBtn">Register</button>
+            <button onclick="window.location.href='../login/login.html'" id="loginBtn">👤 Login</button>      
+            <button onclick="window.location.href='../registar/registar.html'" id="registerBtn">Register</button>
         </div>
     </header>
-
+    
     <main>
         <h2 id="welcomeText"></h2>
         <p>The perfect blend of gaming and fitness.</p>
-        <button class="start-quest">Start Quest</button>
+        <button onclick="window.location.href='../home/home.html'" class="start-quest">Start Quest</button>
     </main>
 
     <section class="features">
@@ -44,34 +43,20 @@
         </a>
     </footer>
 
-    <audio id="clickSound" src="click.mp3"></audio>
-
     <script>
-        document.getElementById("loginBtn").addEventListener("click", function() {
-            document.getElementById("clickSound").play();
-            alert("Login button clicked! Redirecting...");
-        });
+        document.addEventListener("DOMContentLoaded", function() {
 
-        document.getElementById("registerBtn").addEventListener("click", function() {
-            document.getElementById("clickSound").play();
-            alert("Register button clicked! Redirecting...");
-        });
-
-        document.querySelector(".start-quest").addEventListener("click", function() {
-            document.getElementById("clickSound").play();
-            alert("Starting your quest!");
-        });
-
-        let i = 0;
-        let text = "Welcome to Athos!";
-        function typeEffect() {
-            if (i < text.length) {
-                document.getElementById("welcomeText").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeEffect, 100);
+            let i = 0;
+            let text = "Welcome to Athos!";
+            function typeEffect() {
+                if (i < text.length) {
+                    document.getElementById("welcomeText").innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeEffect, 100);
+                }
             }
-        }
-        window.onload = typeEffect;
+            typeEffect();
+        });
     </script>
 </body>
 </html>
