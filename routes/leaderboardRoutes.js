@@ -1,20 +1,32 @@
 import express from "express";
-import { db } from "../config/firebase.js";
+import { db } from "../config/firebase.js"; // ✅ Ensure Firestore is properly imported
 
 const router = express.Router();
-// ✅ Register a User (Ensures Firestore Stores Users Correctly)
-router.post("/register-user", async (req, res) => {
-    const { email, username } = req.body;
 
-    if (!email || !username) {
-        return res.status(400).json({ error: "Email and username are required" });
+// ✅ Register User Route
+router.post("/register-user", async (req, res) => {
+    const { username, email, birthdate, height, weight, gym, password } = req.body;
+
+    if (!email || !username || !password) {
+        return res.status(400).json({ error: "Missing required fields" });
     }
 
     try {
         const userRef = db.collection("users").doc(email);
+        const userSnap = await userRef.get();
+
+        if (userSnap.exists) {
+            return res.status(400).json({ error: "User already exists!" });
+        }
+
         await userRef.set({
             username,
-            xp: 0  // ✅ New users start with 0 XP
+            birthdate,
+            height,
+            weight,
+            gym,
+            password,
+            xp: 0 // ✅ Users start with 0 XP
         });
 
         res.json({ success: true, message: "User registered successfully!" });
@@ -72,3 +84,5 @@ router.get("/leaderboard", async (req, res) => {
 });
 
 export default router;
+
+

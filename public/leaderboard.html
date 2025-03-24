@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Athos FitQuest - ATHOS Leaderboard</title>
+  <title>Athos FitQuest - Athos Leaderboard</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     body {
@@ -16,16 +16,15 @@
       font-family: 'Press Start 2P', cursive;
       color: #fff;
       text-align: center;
-      overflow: hidden;
     }
 
     .leaderboard-container {
       width: 500px;
       background: #1a1a1a;
       padding: 20px;
-      border: 8px solid #ea8d03;
+      border: 8px solid #ea8d03; /* Orange border */
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 127, 0, 0.8);
+      box-shadow: 0 0 20px rgba(255, 127, 0, 0.8); /* Glowing orange */
       text-transform: uppercase;
     }
 
@@ -50,9 +49,6 @@
       background: #2a2a2a;
       border: 4px solid #ea8d03;
       box-shadow: 0 0 10px rgba(255, 127, 0, 0.6);
-      opacity: 0;
-      transform: translateX(-50px);
-      animation: fadeInSlide 0.5s ease forwards;
     }
 
     .rank {
@@ -107,9 +103,12 @@
   </div>
 
   <script>
+    // Backend API URL
     const API_BASE_URL = "http://localhost:5000/api";
+
     const leaderboardList = document.getElementById('leaderboard');
 
+    // ✅ Fetch leaderboard from backend
     async function loadLeaderboard() {
       try {
         const response = await fetch(`${API_BASE_URL}/leaderboard`);
@@ -127,6 +126,7 @@
       }
     }
 
+    // ✅ Display leaderboard dynamically
     function displayLeaderboard(players) {
       leaderboardList.innerHTML = '';
 
@@ -150,7 +150,6 @@
     }
 
     loadLeaderboard();
-    setInterval(loadLeaderboard, 10000);
   </script>
 
 </body>
