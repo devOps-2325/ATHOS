@@ -88,32 +88,67 @@
         <a href="../main/main.html" class="back-link">Back to Home</a>
     </div>
 
-    <script>
-        document.getElementById("registerForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let password = document.getElementById("password").value;
-            let confirmPassword = document.getElementById("confirmPassword").value;
-            let passwordError = document.getElementById("passwordError");
-            let email = document.getElementById("email").value;
-            let emailError = document.getElementById("emailError");
-            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+<script>
+    // Backend API URL
+    const API_BASE_URL = "http://localhost:5000/api";
 
-            if (!emailPattern.test(email)) {
-                emailError.style.display = "block";
-                return;
+    document.getElementById("registerForm").addEventListener("submit", async function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        let username = document.querySelector("input[name='username']").value;
+        let email = document.querySelector("input[name='email']").value;
+        let birthdate = document.querySelector("input[name='birthdate']").value;
+        let height = document.querySelector("input[name='height']").value;
+        let weight = document.querySelector("input[name='weight']").value;
+        let gym = document.querySelector("input[name='gym']").value;
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+        
+        let passwordError = document.getElementById("passwordError");
+        let emailError = document.getElementById("emailError");
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // ✅ Email Validation
+        if (!emailPattern.test(email)) {
+            emailError.style.display = "block";
+            return;
+        } else {
+            emailError.style.display = "none";
+        }
+
+        // ✅ Password Match Validation
+        if (password !== confirmPassword) {
+            passwordError.style.display = "block";
+            return;
+        } else {
+            passwordError.style.display = "none";
+        }
+
+        // ✅ Send Registration Data to Backend
+        try {
+            const response = await fetch(`${API_BASE_URL}/register-user`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username, email, birthdate, height, weight, gym, password
+                })
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                alert("✅ Registration Successful! Redirecting to OTP verification...");
+                window.location.href = "../otp/otp.html?email=" + encodeURIComponent(email);
             } else {
-                emailError.style.display = "none";
+                alert(`❌ Registration Failed: ${data.error}`);
             }
+        } catch (error) {
+            console.error("❌ Error registering user:", error);
+            alert("❌ An error occurred while registering. Please try again.");
+        }
+    });
+</script>
 
-            if (password !== confirmPassword) {
-                passwordError.style.display = "block";
-                return;
-            } else {
-                passwordError.style.display = "none";
-                window.location.href = "otp.html?email=" + encodeURIComponent(email);
-            }
-
-        });
-    </script>
 </body>
 </html>

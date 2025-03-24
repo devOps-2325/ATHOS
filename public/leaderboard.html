@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Athos FitQuest - Minecraft Leaderboard</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://wallpapercave.com/wp/wp5329310.png') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Press Start 2P', cursive;
+      color: #fff;
+      text-align: center;
+    }
+
+    .leaderboard-container {
+      width: 500px;
+      background: #1a1a1a;
+      padding: 20px;
+      border: 8px solid #ea8d03; /* Orange border */
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 127, 0, 0.8); /* Glowing orange */
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #ea8d03;
+      text-shadow: 3px 3px 0px #222;
+    }
+
+    .leaderboard {
+      list-style: none;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .leaderboard li {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+      margin: 6px 0;
+      background: #2a2a2a;
+      border: 4px solid #ea8d03;
+      box-shadow: 0 0 10px rgba(255, 127, 0, 0.6);
+    }
+
+    .rank {
+      font-weight: bold;
+      margin-right: 10px;
+      color: #ffcc00;
+    }
+
+    .player-name {
+      flex-grow: 1;
+      text-align: left;
+      color: #fff;
+    }
+
+    .xp {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="leaderboard-container">
+    <h1>🏆 Minecraft Leaderboard 🏆</h1>
+    <ul id="leaderboard" class="leaderboard"></ul>
+  </div>
+
+  <script>
+    // Backend API URL
+    const API_BASE_URL = "http://localhost:5000/api";
+
+    const leaderboardList = document.getElementById('leaderboard');
+
+    // ✅ Fetch leaderboard from backend
+    async function loadLeaderboard() {
+      try {
+        const response = await fetch(`${API_BASE_URL}/leaderboard`);
+        const data = await response.json();
+
+        if (data.success) {
+          displayLeaderboard(data.leaderboard);
+        } else {
+          console.error("Failed to fetch leaderboard:", data.error);
+        }
+      } catch (error) {
+        console.error("Error loading leaderboard:", error);
+      }
+    }
+
+    // ✅ Display leaderboard dynamically
+    function displayLeaderboard(players) {
+      leaderboardList.innerHTML = '';
+
+      players.forEach((player, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span class="rank">${index + 1}.</span>
+          <span class="player-name">${player.username}</span>
+          <span class="xp">${player.xp} XP</span>
+        `;
+        leaderboardList.appendChild(li);
+      });
+    }
+
+    // ✅ Load leaderboard on page load
+    loadLeaderboard();
+  </script>
+
+</body>
+
+</html>
