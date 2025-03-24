@@ -3,37 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login page</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="login.css">
     <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
 </head>
 <body>
-    <h1>ATHOS</h1>
-    <h3>FITQUEST</h3>
+    <header>
+        <h1>ATHOS FITQUEST</h1>
+    </header>
     <div class="login">
-        <H2 CLASS="HEAD">LOGIN</H2>
-        <form class="form">
+        <h2 class="head">LOGIN</h2>
+        <form class="form" onsubmit="return validateForm()">
             <div class="form_control">
                 <label for="email">Enter Your Email:</label>
                 <input type="email" name="email" id="email" placeholder="YOUR EMAIL..." required>
+                <p id="emailError" style="color: red; font-size: 12px; display: none;">Invalid email format</p>
             </div>
            
             <div class="form_control">
-                <label for="no">Enter Your password:</label>
-            <input type="password" name="password" id="password" placeholder="PASSWORD.." required>
+                <label for="password">Enter Your Password:</label>
+                <input type="password" name="password" id="password" placeholder="PASSWORD.." required>
             </div>
            
             <br>
             <div class="button">
-                <button type="submit"> LOGIN</button>
+                <button type="submit">LOGIN</button>
             </div>
-            <br><br>
-            <div class="foot">
-               New Member?
-                <button type="submit"> Sign in</button>
-            </div>
-            
+            <br><br>               
         </form>
+        New Member? <a href="../registar/registar.html" class="back-link">Signup</a>
     </div>
+    
+    <script>
+        function validateForm() {
+            const email = document.getElementById("email").value;
+            const emailError = document.getElementById("emailError");
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const password = document.getElementById("password").value;
+
+            if (!emailPattern.test(email)) {
+                emailError.style.display = "block";
+                return false;
+            } else {
+                emailError.style.display = "none";
+            }
+
+            if (password.trim() === "") {
+                alert("Password cannot be empty!");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 </html>
