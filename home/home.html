@@ -9,61 +9,44 @@
 </head>
 
 <body>
+  <div id="title">ATHOS</div>
+  <div id="fitquest">FITQUEST</div>
 
-    <!-- Title -->
-    <div id="title">ATHOS</div>
-    <div id="fitquest">FITQUEST</div>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div onmouseover="showTooltip('Daily Goals')" onmouseout="hideTooltip()">
-            <img src="calendar.png" alt="Calendar" class="icon" onclick="navigate('calendar')">
-            <span class="tooltip" id="tooltip">Daily Challenges</span>
-        </div>
-        <div onmouseover="showTooltip('Challenges')" onmouseout="hideTooltip()">
-            <img src="DAILY.png" alt="Tasks" class="icon" onclick="navigate('tasks')">
-            <span class="tooltip" id="tooltip">Your Goals</span>
-        </div>
-        <div onmouseover="showTooltip('Leaderboard')" onmouseout="hideTooltip()">
-            <img src="trophy.png" alt="Achievements" class="icon" onclick="navigate('achievements')">
-            <span class="tooltip" id="tooltip">Achievements</span>
-        </div>
-        <div onmouseover="showTooltip('Profile')" onmouseout="hideTooltip()">
-            <img src="THUNDER.png" alt="Home" class="icon" onclick="navigate('home')">
-            <span class="tooltip" id="tooltip">Return Home</span>
-        </div>
+  <div class="container">
+    <div class="icon-box" onclick="navigate('calendar')">
+      <img src="calendar.png" alt="Calendar" class="icon">
+      <p class="description">Track your daily goals</p>
     </div>
+    <div class="icon-box" onclick="navigate('tasks')">
+      <img src="DAILY.png" alt="Tasks" class="icon">
+      <p class="description">Complete daily challenges</p>
+    </div>
+    <div class="icon-box" onclick="navigate('achievements')">
+      <img src="trophy.png" alt="Achievements" class="icon">
+      <p class="description">View leaderboard rankings</p>
+    </div>
+    <div class="icon-box" onclick="navigate('home')">
+      <img src="THUNDER.png" alt="Home" class="icon">
+      <p class="description">Return to homepage</p>
+    </div>
+  </div>
 
-    <!-- JavaScript -->
-    <script>
-        // Tooltip Functions
-        function showTooltip(text) {
-            const tooltip = document.querySelector("#tooltip");
-            tooltip.textContent = text;
-            tooltip.style.visibility = 'visible';
-            tooltip.style.opacity = 1;
-        }
+  <div class="footer">
+    <p>Contact us: support@athos.com <br><br> Phone: +123456789 <br><br> </p>
+    <p>&copy; 2025 ATHOS. All Rights Reserved.</p>
+  </div>
 
-        function hideTooltip() {
-            const tooltip = document.querySelector("#tooltip");
-            tooltip.style.visibility = 'hidden';
-            tooltip.style.opacity = 0;
-        }
+  <script>
+    function navigate(section) {
+      playClickSound();
+      alert(`Navigating to ${section}`);
+    }
 
-        // Navigation Function
-        function navigate(section) {
-            playClickSound();
-            alert(`Navigating to ${section}`);
-            // Add real navigation logic here, e.g., window.location.href = '/calendar';
-        }
-
-        // Play Sound
-        function playClickSound() {
-            const audio = new Audio('click-sound.mp3');
-            audio.play();
-        }
-    </script>
-
+    function playClickSound() {
+      const audio = new Audio('click-sound.mp3');
+      audio.play();
+    }
+  </script>
 </body>
 
 </html>
