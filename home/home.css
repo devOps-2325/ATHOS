@@ -4,30 +4,83 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  padding: 10px;
-  min-height: 100vh;
+/* General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Press Start 2P', cursive;
+  background: url('bg.jpeg') no-repeat center center/cover;
+  color: yellow;
+}
+
+/* Title Animation */
+#title {
+  text-align: center;
+  font-size: 4em;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+  margin-top: 50px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+#fitquest {
+  text-align: center;
+  font-size: 2em;
+  opacity: 0;
+  animation: fadeIn 2s 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  margin-top: 100px;
+  left: 20px;
+  top: 100px;
   display: flex;
   flex-direction: column;
-  font-family: 'Press Start 2P', cursive;
+  gap: 20px;
 }
-h1{
-  font-size: 40px;
-}
-h1,h3{
-  margin: 5px;
-  padding-right: 10px;
- text-align: center; 
- color: #ffc400;
 
+.icon {
+  width: 60px;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
 }
-img{
-  height: 50px;
-  margin: 5px;
+
+.icon:hover {
+  transform: scale(1.2);
+  filter: brightness(1.5);
 }
-.icon{
-  margin-top:90px;
-  align-items: baseline;
-  display: grid;
-  grid-auto-columns:auto;
+
+.tooltip {
+  position: absolute;
+  left: 80px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+  #title {
+      font-size: 3em;
+  }
+
+  .icon {
+      width: 50px;
+  }
 }

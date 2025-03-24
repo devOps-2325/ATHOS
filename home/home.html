@@ -1,19 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+<<<<<<< Updated upstream
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="home.css">
   <title>ATHOS</title>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>ATHOS FitQuest</title>
+>>>>>>> Stashed changes
 </head>
+
 <body>
-  <h1>ATHOS</h1>
-  <h3>FITQUEST</h3>
-  <div class="icon">
-    <img src="calendar.png" alt="">
-    <img src="DAILY.png" alt="">
-    <img src="trophy.png" alt="">
-    <img src="thunder.png" alt="">
-  </div>
+
+    <!-- Title -->
+    <div id="title">ATHOS</div>
+    <div id="fitquest">FITQUEST</div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div onmouseover="showTooltip('Daily Goals')" onmouseout="hideTooltip()">
+            <img src="calendar.png" alt="Calendar" class="icon" onclick="navigate('calendar')">
+            <span class="tooltip" id="tooltip">Daily Challenges</span>
+        </div>
+        <div onmouseover="showTooltip('Challenges')" onmouseout="hideTooltip()">
+            <img src="DAILY.png" alt="Tasks" class="icon" onclick="navigate('tasks')">
+            <span class="tooltip" id="tooltip">Your Goals</span>
+        </div>
+        <div onmouseover="showTooltip('Leaderboard')" onmouseout="hideTooltip()">
+            <img src="trophy.png" alt="Achievements" class="icon" onclick="navigate('achievements')">
+            <span class="tooltip" id="tooltip">Achievements</span>
+        </div>
+        <div onmouseover="showTooltip('Profile')" onmouseout="hideTooltip()">
+            <img src="THUNDER.png" alt="Home" class="icon" onclick="navigate('home')">
+            <span class="tooltip" id="tooltip">Return Home</span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Tooltip Functions
+        function showTooltip(text) {
+            const tooltip = document.querySelector("#tooltip");
+            tooltip.textContent = text;
+            tooltip.style.visibility = 'visible';
+            tooltip.style.opacity = 1;
+        }
+
+        function hideTooltip() {
+            const tooltip = document.querySelector("#tooltip");
+            tooltip.style.visibility = 'hidden';
+            tooltip.style.opacity = 0;
+        }
+
+        // Navigation Function
+        function navigate(section) {
+            playClickSound();
+            alert(`Navigating to ${section}`);
+            // Add real navigation logic here, e.g., window.location.href = '/calendar';
+        }
+
+        // Play Sound
+        function playClickSound() {
+            const audio = new Audio('click-sound.mp3');
+            audio.play();
+        }
+    </script>
+
 </body>
+
 </html>
